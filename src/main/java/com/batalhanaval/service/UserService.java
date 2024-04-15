@@ -27,22 +27,6 @@ public class UserService {
         return this.userRepository.findAll();
     }
 
-    public User updateUser(Long userId, User updateData) {
-        User user = this.userRepository.findById(userId).orElse(null);
-
-        if (user == null) return null;
-
-        user.setEmail(updateData.getEmail());
-        user.setNome(updateData.getNome());
-        user.setSenha(updateData.getSenha());
-        user.setDataNascimento(updateData.getDataNascimento());
-        user.setNivelAcesso(updateData.getNivelAcesso());
-
-        this.userRepository.save(user);
-
-        return user;
-    }
-
     public void deleteUser(Long userId) {
         this.userRepository.deleteById(userId);
     }
