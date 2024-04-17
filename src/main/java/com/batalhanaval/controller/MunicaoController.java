@@ -1,9 +1,7 @@
 package com.batalhanaval.controller;
 
 import com.batalhanaval.entity.Municao;
-import com.batalhanaval.entity.User;
 import com.batalhanaval.service.MunicaoService;
-import com.batalhanaval.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -39,6 +37,11 @@ public class MunicaoController {
         List<Municao> municao = this.municaoService.getMunicao();
 
         return ResponseEntity.ok(municao);
+    }
+
+    @DeleteMapping("{municaoId}")
+    public void deleteMunicao(@PathVariable Long municaoId) {
+        this.municaoService.deleteMunicao(municaoId);
     }
 
 
